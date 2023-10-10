@@ -11,23 +11,26 @@ if (!defined('ABSPATH')) {
         <div class="footer__mid">
             <div class="footer__mid_main">
                 <div class="footer__mid_main_soc">
-                    <?php if (true) { ?>
-                        <a href="#" class="footer__mid_main_soc_item">WHATSAPP</a>
+
+                    <?php if (get_field('messendzhery_i_kontakty_nazvanie_messendzhera_1_v_shapke_i_v_podvale', 33)) { ?>
+                        <a href="<?php echo get_field('messendzhery_i_kontakty_ssylka_messendzhera_1_v_shapke_i_v_podvale', 33); ?>" class="footer__mid_main_soc_item"><?php echo get_field('messendzhery_i_kontakty_nazvanie_messendzhera_1_v_shapke_i_v_podvale', 33); ?></a>
                     <?php } ?>
 
-                    <?php if (true) { ?>
-                        <a href="#" class="footer__mid_main_soc_item">VK</a>
+                    <?php if (get_field('messendzhery_i_kontakty_nazvanie_messendzhera_2_v_podvale', 33)) { ?>
+                        <a href="<?php echo get_field('messendzhery_i_kontakty_ssylka_messendzhera_2_v_podvale', 33); ?>" class="footer__mid_main_soc_item"><?php echo get_field('messendzhery_i_kontakty_nazvanie_messendzhera_2_v_podvale', 33); ?></a>
                     <?php } ?>
 
-                    <?php if (true) { ?>
-                        <a href="#" class="footer__mid_main_soc_item">TELEGRAM</a>
+                    <?php if (get_field('messendzhery_i_kontakty_nazvanie_messendzhera_3_v_podvale', 33)) { ?>
+                        <a href="<?php echo get_field('messendzhery_i_kontakty_ssylka_messendzhera_3_v_podvale', 33); ?>" class="footer__mid_main_soc_item"><?php echo get_field('messendzhery_i_kontakty_nazvanie_messendzhera_3_v_podvale', 33); ?></a>
                     <?php } ?>
 
-                    <?php if (true) { ?>
-                        <a href="#" class="footer__mid_main_soc_item">YOUTUBE</a>
+                    <?php if (get_field('messendzhery_i_kontakty_nazvanie_messendzhera_4_v_podvale', 33)) { ?>
+                        <a href="<?php echo get_field('messendzhery_i_kontakty_ssylka_messendzhera_4_v_podvale', 33); ?>" class="footer__mid_main_soc_item"><?php echo get_field('messendzhery_i_kontakty_nazvanie_messendzhera_4_v_podvale', 33); ?></a>
                     <?php } ?>
+
                 </div>
             </div>
+
             <div class="footer__mid_ex">
                 <?php
                 wp_nav_menu(array(
@@ -36,6 +39,7 @@ if (!defined('ABSPATH')) {
                 ));
                 ?>
             </div>
+
         </div>
         <div class="footer__bottom">©COPYRIGHT <?php echo date('Y') ?>. GRADUSY CLINIC.</div>
     </div>
@@ -48,7 +52,6 @@ if (!defined('ABSPATH')) {
     <div class="container">
         <div class="menu__in">
 
-            <!-- START ПЕРВАЯ ЧАСТЬ -->
             <ul class="menu__part">
                 <li class="menu__part_item">
                     <a class="menu__part_item_link" href="<?php echo home_url('/uslugi'); ?>">Услуги</a>
@@ -105,14 +108,9 @@ if (!defined('ABSPATH')) {
                     </ul>
                 </li>
 
-
             </ul>
-            <!-- END ПЕРВАЯ ЧАСТЬ -->
 
-
-            <!-- START СРЕДНЯЯ ЧАСТЬ -->
             <ul class="menu__part">
-                <!-- Недобавленные пункты: Аппараты, Онлайн бутик  -->
                 <?php
                 wp_nav_menu(array(
                     'theme_location' => 'primary-menu-middle',
@@ -120,28 +118,15 @@ if (!defined('ABSPATH')) {
                 ));
                 ?>
             </ul>
-            <!-- END СРЕДНЯЯ ЧАСТЬ -->
 
-
-            <!-- START ПОСЛЕДНЯЯ ЧАСТЬ -->
             <ul class="menu__part">
-
                 <?php
                 wp_nav_menu(array(
                     'theme_location' => 'primary-menu-last',
                     'menu_class'     => 'primary-menu-last',
                 ));
                 ?>
-
-
-                <!-- <li class="menu__part_item">
-                    <a href="<?php echo home_url('/novosti'); ?>" class="menu__part_item_link">Новости</a>
-                </li>
-                <li class="menu__part_item">
-                    <a href="<?php echo home_url('/kontakty'); ?>" class="menu__part_item_link">Контакты</a>
-                </li> -->
             </ul>
-            <!-- END ПОСЛЕДНЯЯ ЧАСТЬ -->
 
         </div>
     </div>
@@ -152,12 +137,15 @@ if (!defined('ABSPATH')) {
             </div>
             <div class="footer__mid">
                 <div class="footer__mid_ex">
-                    <a href="#" class="footer__mid_ex_policy">Политика конфиденциальности
-                    </a>
-                    <a href="#" class="footer__mid_ex_license">ЛИЦЕНЗИИ И ДОКУМЕНТЫ</a>
+                    <?php
+                    wp_nav_menu(array(
+                        'theme_location' => 'footer-menu',
+                        'menu_class'     => 'footer-menu',
+                    ));
+                    ?>
                 </div>
             </div>
-            <div class="footer__bottom">©COPYRIGHT 2023. GRADUSY CLINIC.</div>
+            <div class="footer__bottom">©COPYRIGHT <?php echo date('Y') ?>. GRADUSY CLINIC.</div>
         </div>
     </footer>
 
@@ -170,10 +158,8 @@ if (!defined('ABSPATH')) {
 
 <!-- pop-up записаться -->
 <div class="popup-inner">
-
     <div class="employee-page__feedback">
         <span class="popup-sign-up__close">x</span>
-        <!-- <div class="employee-page__feedback-title">Записаться</div> -->
         <div class="employee-page__feedback-subtitle">Запишитесь на прием прямо сейчас!</div>
         <form action="" class="feedback-form">
             <div class="feedback-form__first">
@@ -207,7 +193,6 @@ if (!defined('ABSPATH')) {
             </div>
         </form>
     </div>
-
 </div>
 <!-- /pop-up записаться -->
 
@@ -215,10 +200,6 @@ if (!defined('ABSPATH')) {
 <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/Swiper/10.3.0/swiper-bundle.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/fancybox/3.5.7/jquery.fancybox.min.js"></script>
-
-<!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.3.1/jspdf.umd.min.js"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/dompurify/2.3.0/purify.min.js"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/0.5.0-beta4/html2canvas.min.js"></script> -->
 
 <script src="<?php echo get_template_directory_uri(); ?>/js/custom.js"></script>
 <?php wp_footer(); ?>

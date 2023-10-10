@@ -2156,3 +2156,58 @@ input[type=checkbox]:checked + .feedback-form__item-pravicy-checkmark::before {
 th.table__item.table__head {
   font-weight: 400 !important;
 }
+
+.contacts-page__body_main,
+.contacts-page__body_list {
+  margin-left: 0;
+  margin-right: 0;
+  gap: 0 70px;
+  -ms-flex-wrap: nowrap;
+      flex-wrap: nowrap;
+  margin-bottom: 30px;
+}
+
+.contacts-page__body_main_item {
+  width: 33%;
+  margin: 0;
+}
+
+.contacts-page__body_list-item {
+  width: 33%;
+  margin: 0;
+  margin-bottom: 0;
+  font-size: 18px;
+  line-height: 122%;
+}
+
+.contacts-page__body_item {
+  width: 100%;
+  margin-bottom: 20px;
+}
+
+.contacts-page__body_ex {
+  margin-top: 30px;
+}
+
+.menu #menu-podval-1 {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+  gap: 10px;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+}
+
+@media (max-width: 768px) {
+  .contacts-page__body_main_item {
+    width: 100%;
+    margin-bottom: 15px;
+    max-width: 300px;
+  }
+  .contacts-page__body_item {
+    margin-bottom: 0;
+  }
+}

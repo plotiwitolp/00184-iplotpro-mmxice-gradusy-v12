@@ -369,7 +369,7 @@ get_header();
                                             <div class="promo__body_item_descr_text"><?php echo get_field('podzagolovok', $akczii_i_speczpredlozheniya__item->ID); ?></div>
                                         <?php } ?>
                                         <div class="promo__body_item_descr_link">
-                                            <div class="arrow-link dark">
+                                            <div class="arrow-link">
                                                 <div class="arrow-link__text">Узнать больше</div>
                                                 <div class="arrow-link__icon"></div>
                                             </div>

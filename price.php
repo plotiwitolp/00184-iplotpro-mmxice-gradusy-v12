@@ -60,7 +60,7 @@ get_header();
 
                                             <?php if ($i > 0) { ?>
                                                 <div class="services-price__body_item_head ac-header">
-                                                    <div class="services-price__header"><?php echo $term->name . " ($i)"; ?></div>
+                                                    <div class="services-price__header"><?php echo $term->name; ?></div>
                                                 </div>
                                             <?php } ?>
 

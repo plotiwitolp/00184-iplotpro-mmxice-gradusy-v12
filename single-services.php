@@ -423,9 +423,9 @@ get_header();
             <div class="serv2">
                 <div class="container">
                     <div class="serv2__in">
-                        <h2 class="serv2__head section__title dark">Услуги</h2>
-                        <a href="<?php echo home_url('/uslugi'); ?>" class="about__body_content_link">
-                            <div class="about__body_content_link_text">к услугам</div>
+                        <h2 class="serv2__head section__title dark"><?php echo get_field('nazvanie_bloka_uslugi'); ?></h2>
+                        <a href="<?php echo home_url(); ?>/<?php echo get_field('ssylka_knopki_k_uslugam'); ?>" class="about__body_content_link">
+                            <div class="about__body_content_link_text"><?php echo get_field('nazvanie_knopki_k_uslugam'); ?></div>
                             <div class="about__body_content_link_icon"></div>
                         </a>
                         <?php get_template_part('templates/uslugi'); ?>

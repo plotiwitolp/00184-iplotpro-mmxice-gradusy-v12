@@ -12,96 +12,48 @@ get_header();
             <div class="single-page__in">
                 <h1 class="single-page__title">Проблемы и решения</h1>
                 <div class="single-page__body">
-                    <div class="single-page__body-item">
-                        <h2 class="single-page__subtitle" id="01">Проблемы кожи</h2>
-                        <p>
-                            Lorem ipsum dolor sit, amet consectetur adipisicing elit. Veniam quibusdam voluptas non blanditiis odit, harum quasi laborum minima atque aut aliquid iusto, et necessitatibus voluptatem repellat velit sint autem expedita?
-                        </p>
-                        <p>
-                            Perferendis magni necessitatibus, obcaecati aut, expedita autem dolorem soluta sit provident, harum ab? Doloremque similique animi repellendus dolorum repellat cupiditate, quidem placeat magnam facilis veniam et quod, amet provident laudantium.
-                        </p>
-                        <p>
-                            Facilis enim ipsum hic voluptate ipsam officiis, nesciunt consequatur, magni tempore voluptates aspernatur placeat obcaecati. Voluptates sunt iure nulla dolorum pariatur dicta, harum nostrum quisquam ipsum perspiciatis cum totam architecto.
-                        </p>
-                        <p>
-                            Perspiciatis id officiis at iusto, cumque ullam numquam libero voluptas quaerat delectus! Rem, pariatur adipisci. Deleniti quos, est temporibus, dolor consequuntur vero voluptatum nesciunt esse molestias expedita libero, hic ducimus!
-                        </p>
+
+
+                    <div class="promo__body">
+
+                        <?php
+                        $args = array(
+                            'post_type' => 'problemy_i_resheniya',
+                            'posts_per_page' => -1,
+                        );
+                        $query = new WP_Query($args);
+
+                        if ($query->have_posts()) {
+                            while ($query->have_posts()) {
+                                $query->the_post();
+                        ?>
+                                <a href="<?php echo get_permalink(); ?>" class="promo__body_item">
+                                    <div class="promo__body_item_img">
+                                        <?php if (has_post_thumbnail()) { ?>
+                                            <?php echo get_the_post_thumbnail(); ?>
+                                        <?php } else { ?>
+                                            <img src="<?php echo get_template_directory_uri() ?>/img/problem_solution/gmsubolnyyk2drm4oi3eel7l9tz2twe1.webp" alt="problem_solution-img">
+                                        <?php } ?>
+                                    </div>
+                                    <div class="promo__body_item_descr">
+                                        <div class="promo__body_item_descr_head"><?php the_title(); ?></div>
+                                        <div class="promo__body_item_descr_link">
+                                            <div class="arrow-link">
+                                                <div class="arrow-link__text">Узнать больше</div>
+                                                <div class="arrow-link__icon"></div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </a>
+                        <?php
+                            }
+                            wp_reset_postdata();
+                        }
+                        ?>
+
                     </div>
-                    <div class="single-page__body-item">
-                        <h2 class="single-page__subtitle" id="02">Лишние килограммы</h2>
-                        <p>
-                            Lorem ipsum dolor sit, amet consectetur adipisicing elit. Veniam quibusdam voluptas non blanditiis odit, harum quasi laborum minima atque aut aliquid iusto, et necessitatibus voluptatem repellat velit sint autem expedita?
-                        </p>
-                        <p>
-                            Perferendis magni necessitatibus, obcaecati aut, expedita autem dolorem soluta sit provident, harum ab? Doloremque similique animi repellendus dolorum repellat cupiditate, quidem placeat magnam facilis veniam et quod, amet provident laudantium.
-                        </p>
-                        <p>
-                            Facilis enim ipsum hic voluptate ipsam officiis, nesciunt consequatur, magni tempore voluptates aspernatur placeat obcaecati. Voluptates sunt iure nulla dolorum pariatur dicta, harum nostrum quisquam ipsum perspiciatis cum totam architecto.
-                        </p>
-                        <p>
-                            Perspiciatis id officiis at iusto, cumque ullam numquam libero voluptas quaerat delectus! Rem, pariatur adipisci. Deleniti quos, est temporibus, dolor consequuntur vero voluptatum nesciunt esse molestias expedita libero, hic ducimus!
-                        </p>
-                    </div>
-                    <div class="single-page__body-item">
-                        <h2 class="single-page__subtitle" id="03">Косметологические проблемы шеи</h2>
-                        <p>
-                            Lorem ipsum dolor sit, amet consectetur adipisicing elit. Veniam quibusdam voluptas non blanditiis odit, harum quasi laborum minima atque aut aliquid iusto, et necessitatibus voluptatem repellat velit sint autem expedita?
-                        </p>
-                        <p>
-                            Perferendis magni necessitatibus, obcaecati aut, expedita autem dolorem soluta sit provident, harum ab? Doloremque similique animi repellendus dolorum repellat cupiditate, quidem placeat magnam facilis veniam et quod, amet provident laudantium.
-                        </p>
-                        <p>
-                            Facilis enim ipsum hic voluptate ipsam officiis, nesciunt consequatur, magni tempore voluptates aspernatur placeat obcaecati. Voluptates sunt iure nulla dolorum pariatur dicta, harum nostrum quisquam ipsum perspiciatis cum totam architecto.
-                        </p>
-                        <p>
-                            Perspiciatis id officiis at iusto, cumque ullam numquam libero voluptas quaerat delectus! Rem, pariatur adipisci. Deleniti quos, est temporibus, dolor consequuntur vero voluptatum nesciunt esse molestias expedita libero, hic ducimus!
-                        </p>
-                    </div>
-                    <div class="single-page__body-item">
-                        <h2 class="single-page__subtitle" id="04">Косметологические проблемы груди</h2>
-                        <p>
-                            Lorem ipsum dolor sit, amet consectetur adipisicing elit. Veniam quibusdam voluptas non blanditiis odit, harum quasi laborum minima atque aut aliquid iusto, et necessitatibus voluptatem repellat velit sint autem expedita?
-                        </p>
-                        <p>
-                            Perferendis magni necessitatibus, obcaecati aut, expedita autem dolorem soluta sit provident, harum ab? Doloremque similique animi repellendus dolorum repellat cupiditate, quidem placeat magnam facilis veniam et quod, amet provident laudantium.
-                        </p>
-                        <p>
-                            Facilis enim ipsum hic voluptate ipsam officiis, nesciunt consequatur, magni tempore voluptates aspernatur placeat obcaecati. Voluptates sunt iure nulla dolorum pariatur dicta, harum nostrum quisquam ipsum perspiciatis cum totam architecto.
-                        </p>
-                        <p>
-                            Perspiciatis id officiis at iusto, cumque ullam numquam libero voluptas quaerat delectus! Rem, pariatur adipisci. Deleniti quos, est temporibus, dolor consequuntur vero voluptatum nesciunt esse molestias expedita libero, hic ducimus!
-                        </p>
-                    </div>
-                    <div class="single-page__body-item">
-                        <h2 class="single-page__subtitle" id="05">Эпиляция ног</h2>
-                        <p>
-                            Lorem ipsum dolor sit, amet consectetur adipisicing elit. Veniam quibusdam voluptas non blanditiis odit, harum quasi laborum minima atque aut aliquid iusto, et necessitatibus voluptatem repellat velit sint autem expedita?
-                        </p>
-                        <p>
-                            Perferendis magni necessitatibus, obcaecati aut, expedita autem dolorem soluta sit provident, harum ab? Doloremque similique animi repellendus dolorum repellat cupiditate, quidem placeat magnam facilis veniam et quod, amet provident laudantium.
-                        </p>
-                        <p>
-                            Facilis enim ipsum hic voluptate ipsam officiis, nesciunt consequatur, magni tempore voluptates aspernatur placeat obcaecati. Voluptates sunt iure nulla dolorum pariatur dicta, harum nostrum quisquam ipsum perspiciatis cum totam architecto.
-                        </p>
-                        <p>
-                            Perspiciatis id officiis at iusto, cumque ullam numquam libero voluptas quaerat delectus! Rem, pariatur adipisci. Deleniti quos, est temporibus, dolor consequuntur vero voluptatum nesciunt esse molestias expedita libero, hic ducimus!
-                        </p>
-                    </div>
-                    <div class="single-page__body-item">
-                        <h2 class="single-page__subtitle" id="06">Косметологические проблемы интимной зоны</h2>
-                        <p>
-                            Lorem ipsum dolor sit, amet consectetur adipisicing elit. Veniam quibusdam voluptas non blanditiis odit, harum quasi laborum minima atque aut aliquid iusto, et necessitatibus voluptatem repellat velit sint autem expedita?
-                        </p>
-                        <p>
-                            Perferendis magni necessitatibus, obcaecati aut, expedita autem dolorem soluta sit provident, harum ab? Doloremque similique animi repellendus dolorum repellat cupiditate, quidem placeat magnam facilis veniam et quod, amet provident laudantium.
-                        </p>
-                        <p>
-                            Facilis enim ipsum hic voluptate ipsam officiis, nesciunt consequatur, magni tempore voluptates aspernatur placeat obcaecati. Voluptates sunt iure nulla dolorum pariatur dicta, harum nostrum quisquam ipsum perspiciatis cum totam architecto.
-                        </p>
-                        <p>
-                            Perspiciatis id officiis at iusto, cumque ullam numquam libero voluptas quaerat delectus! Rem, pariatur adipisci. Deleniti quos, est temporibus, dolor consequuntur vero voluptatum nesciunt esse molestias expedita libero, hic ducimus!
-                        </p>
-                    </div>
+
+
                 </div>
             </div>
         </div>

@@ -10,50 +10,83 @@ get_header();
     <div class="news-item">
         <div class="container">
             <div class="news-item__in">
-                <h2 class="news-item__head section__title dark"><?php the_title(); ?> 123 </h2>
+                <h2 class="news-item__head section__title dark"><?php the_title(); ?></h2>
                 <div class="news-item__mob">
-                    <div class="news-item__mob_name">Bio-Ultimate Gold</div>
-                    <div class="news-item__mob_date">
-                        <!-- 24 — 25 августа -->
-                    </div>
+                    <h2 class="news-item__mob_name"><?php the_title(); ?></h2>
                 </div>
                 <div class="news-item__body">
-                    <div class="news-item__body_img">
-                        <picture>
-                            <source srcset="" type="image/webp">
-                            <img src="<?php echo get_template_directory_uri(); ?>/img/apparaty/01.png" alt="apparaty-img">
-                        </picture>
-                    </div>
-                    <div class="news-item__body_content">
-                        <h2 class="news-item__body_content_name">
-                            <!-- Duft & Doft −30% -->
-                        </h2>
-                        <div class="news-item__body_content_date">
-                            <!-- 24 — 25 августа -->
-                        </div>
-                        <div class="news-item__body_content_subhead">
-                            <!-- Маски для увлажнения, восстановления и укрепления кожи -->
-                        </div>
-                        <div class="news-item__body_content_text">
-                            Bio-Ultimate Gold – полностью компьютеризированный двухканальный аппарат для микротоковой терапии. 17 программ, 54 подпрограммы; 11 уровней воздействия; 4 формы волны подаваемого импульса (пологая, умеренная, крутая, импульсная); Сила тока: 40-760 мкА; Диапазон частот: 0,1-300 Гц; Самостоятельное программирование; Увеличенные пределы регулировки; Двухканальная проба с частотной интерференцией; Комплектуется токопроводящими перчатками, пробами и биомаской; Автономное питание.
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <div class="client">
-            <div class="container">
-                <div class="client__in">
-                    <h2 class="client__head section__title">Ещё аппараты</h2>
 
-                    <!-- apparaty-slider -->
-                    <?php get_template_part('templates/apparaty-slider'); ?>
-                    <!-- /apparaty-slider -->
+                    <?php if (get_field('vklyuchitvyklyuchit_kartinku')) { ?>
+                        <div class="news-item__body_img">
 
+                            <?php if (has_post_thumbnail()) { ?>
+                                <?php echo get_the_post_thumbnail(); ?>
+                            <?php } else { ?>
+                                <img src="<?php echo get_template_directory_uri() ?>/img/apparaty/01.png" alt="apparat-img">
+                            <?php } ?>
+
+                        </div>
+                    <?php } ?>
+
+                    <?php if (get_field('vklyuchitvyklyuchit_tekst')) { ?>
+                        <div class="news-item__body_content">
+                            <div class="news-item__body_content_text"><?php echo get_field('tekst'); ?>
+                            </div>
+                        </div>
+                    <?php } ?>
 
                 </div>
             </div>
         </div>
+
+        <?php if (get_field('vklyuchitvyklyuchit_blok_eshhyo_apparaty')) { ?>
+            <div class="client">
+                <div class="container">
+                    <div class="client__in">
+                        <h2 class="client__head section__title"><?php echo get_field('nazvanie_zagolovka_eshhyo_apparaty'); ?></h2>
+
+                        <div class="client__body">
+                            <div class="client__body_slider swiper">
+                                <div class="client__body_slider_wr swiper-wrapper">
+
+
+                                    <?php
+                                    $items = get_field('eshhyo_apparaty');
+                                    if ($items) {
+                                        foreach ($items as $item) {
+                                            setup_postdata($item);
+                                    ?>
+                                            <a href="<?php echo get_permalink($item->ID); ?>" class="client__body_slider_slide swiper-slide">
+                                                <div class="client__body_slider_slide_img">
+
+                                                    <?php if (has_post_thumbnail($item->ID)) { ?>
+                                                        <?php echo get_the_post_thumbnail($item->ID); ?>
+                                                    <?php } else { ?>
+                                                        <img src="<?php echo get_template_directory_uri() ?>/img/apparaty/01.png" alt="apparat-img">
+                                                    <?php } ?>
+
+                                                </div>
+                                                <div class="client__body_slider_slide_descr">
+                                                    <div class="client__body_slider_slide_descr_name"><?php echo get_the_title($item->ID); ?></div>
+                                                </div>
+                                            </a>
+                                    <?php
+                                            wp_reset_postdata();
+                                        }
+                                    } ?>
+
+
+                                </div>
+                            </div>
+                        </div>
+
+
+                    </div>
+                </div>
+            </div>
+        <?php } ?>
+
+
     </div>
 </main>
 <!-- /main -->

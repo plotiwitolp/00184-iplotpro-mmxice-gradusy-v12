@@ -58,7 +58,6 @@ get_header();
 
 
                 <div class="services-team">
-                    <!-- <div class="container"> -->
                     <div class="services-team__in">
                         <div class="services-team__head">
                             <h2 class="services-team__head_title section__title dark">Специалисты</h2>
@@ -69,11 +68,10 @@ get_header();
                                 </a>
                             </div>
                         </div>
-                        <!-- templates/specialist-slider.php -->
+
                         <?php get_template_part('templates/specialist-slider'); ?>
-                        <!-- /templates/specialist-slider.php -->
+
                     </div>
-                    <!-- </div> -->
                 </div>
 
 
@@ -119,17 +117,6 @@ get_header();
                     </div>
                 </div>
 
-
-
-                <!-- <div class="client">
-                    <div class="client__in">
-                        <h2 class="client__head section__title">Аппараты</h2>
-                        <?php // get_template_part('templates/apparaty-slider'); 
-                        ?>
-                    </div>
-                </div> -->
-
-
             </div>
         </div>
     </div>
@@ -157,9 +144,9 @@ get_header();
                 <h2 class="promo__head section__title dark">
                     Акции и спецпредложения
                 </h2>
-                <!-- templates/promo -->
+
                 <?php get_template_part('templates/promo'); ?>
-                <!-- /templates/promo -->
+
             </div>
         </div>
     </div>

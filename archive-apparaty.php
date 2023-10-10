@@ -17,108 +17,36 @@ get_header();
                     <div class="client__body">
                         <div class="client__body_apparaty ">
                             <div class="client__body_apparaty_wr">
-                                <a href="<?php echo home_url('/apparaty-item'); ?>" class="client__body_slider_slide">
-                                    <div class="client__body_slider_slide_img">
-                                        <picture>
-                                            <source srcset="" type="image/webp">
-                                            <img src="<?php echo get_template_directory_uri() ?>/img/apparaty/01.png" alt="client-img">
-                                        </picture>
-                                    </div>
-                                    <div class="client__body_slider_slide_descr">
-                                        <div class="client__body_slider_slide_descr_name">Bio-Ultimate Gold</div>
-                                        <div class="client__body_slider_slide_descr_date">
-                                            <!-- sub text -->
-                                        </div>
-                                        <div class="client__body_slider_slide_descr_text">
-                                            <!-- средства ухода за кожей и волосами -->
-                                        </div>
-                                    </div>
-                                </a>
-                                <a href="<?php echo home_url('/apparaty-item'); ?>" class="client__body_slider_slide">
-                                    <div class="client__body_slider_slide_img">
-                                        <picture>
-                                            <source srcset="" type="image/webp">
-                                            <img src="<?php echo get_template_directory_uri() ?>/img/apparaty/02.png" alt="client-img">
-                                        </picture>
-                                    </div>
-                                    <div class="client__body_slider_slide_descr">
-                                        <div class="client__body_slider_slide_descr_name">Пилинг «АТИСМЕД»</div>
-                                        <div class="client__body_slider_slide_descr_date">
-                                            <!-- sub text -->
-                                        </div>
-                                        <div class="client__body_slider_slide_descr_text">
-                                            <!-- desc -->
-                                        </div>
-                                    </div>
-                                </a>
-                                <a href="<?php echo home_url('/apparaty-item'); ?>" class="client__body_slider_slide">
-                                    <div class="client__body_slider_slide_img">
-                                        <picture>
-                                            <source srcset="" type="image/webp">
-                                            <img src="<?php echo get_template_directory_uri() ?>/img/apparaty/03.png" alt="client-img">
-                                        </picture>
-                                    </div>
-                                    <div class="client__body_slider_slide_descr">
-                                        <div class="client__body_slider_slide_descr_name">Ультразвуковая чистка «Галатея»</div>
-                                        <div class="client__body_slider_slide_descr_date">
-                                            <!-- sub text -->
-                                        </div>
-                                        <div class="client__body_slider_slide_descr_text">
-                                            <!-- desc -->
-                                        </div>
-                                    </div>
-                                </a>
-                                <a href="<?php echo home_url('/apparaty-item'); ?>" class="client__body_slider_slide">
-                                    <div class="client__body_slider_slide_img">
-                                        <picture>
-                                            <source srcset="" type="image/webp">
-                                            <img src="<?php echo get_template_directory_uri() ?>/img/apparaty/04.png" alt="client-img">
-                                        </picture>
-                                    </div>
-                                    <div class="client__body_slider_slide_descr">
-                                        <div class="client__body_slider_slide_descr_name">Smas lifting ultraformer 3</div>
-                                        <div class="client__body_slider_slide_descr_date">
-                                            <!-- sub text -->
-                                        </div>
-                                        <div class="client__body_slider_slide_descr_text">
-                                            <!-- desc -->
-                                        </div>
-                                    </div>
-                                </a>
-                                <a href="<?php echo home_url('/apparaty-item'); ?>" class="client__body_slider_slide">
-                                    <div class="client__body_slider_slide_img">
-                                        <picture>
-                                            <source srcset="" type="image/webp">
-                                            <img src="<?php echo get_template_directory_uri() ?>/img/apparaty/05.png" alt="client-img">
-                                        </picture>
-                                    </div>
-                                    <div class="client__body_slider_slide_descr">
-                                        <div class="client__body_slider_slide_descr_name">Innofill 4</div>
-                                        <div class="client__body_slider_slide_descr_date">
-                                            <!-- sub text -->
-                                        </div>
-                                        <div class="client__body_slider_slide_descr_text">
-                                            <!-- desc -->
-                                        </div>
-                                    </div>
-                                </a>
-                                <a href="<?php echo home_url('/apparaty-item'); ?>" class="client__body_slider_slide">
-                                    <div class="client__body_slider_slide_img">
-                                        <picture>
-                                            <source srcset="" type="image/webp">
-                                            <img src="<?php echo get_template_directory_uri() ?>/img/apparaty/06.png" alt="client-img">
-                                        </picture>
-                                    </div>
-                                    <div class="client__body_slider_slide_descr">
-                                        <div class="client__body_slider_slide_descr_name">Cortexil PRP</div>
-                                        <div class="client__body_slider_slide_descr_date">
-                                            <!-- sub text -->
-                                        </div>
-                                        <div class="client__body_slider_slide_descr_text">
-                                            <!-- desc -->
-                                        </div>
-                                    </div>
-                                </a>
+
+                                <?php
+                                $args = array(
+                                    'post_type' => 'apparaty',
+                                    'posts_per_page' => -1,
+                                );
+                                $query = new WP_Query($args);
+
+                                if ($query->have_posts()) {
+                                    while ($query->have_posts()) {
+                                        $query->the_post();
+                                ?>
+                                        <a href="<?php echo get_permalink(); ?>" class="client__body_slider_slide">
+                                            <div class="client__body_slider_slide_img">
+                                                <?php if (has_post_thumbnail()) { ?>
+                                                    <?php echo get_the_post_thumbnail(); ?>
+                                                <?php } else { ?>
+                                                    <img src="<?php echo get_template_directory_uri() ?>/img/apparaty/01.png" alt="apparaty-img">
+                                                <?php } ?>
+                                            </div>
+                                            <div class="client__body_slider_slide_descr">
+                                                <div class="client__body_slider_slide_descr_name"><?php the_title(); ?></div>
+                                            </div>
+                                        </a>
+                                <?php
+                                    }
+                                    wp_reset_postdata();
+                                }
+                                ?>
+
                             </div>
                         </div>
                     </div>

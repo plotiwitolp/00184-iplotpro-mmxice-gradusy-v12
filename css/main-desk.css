@@ -12,7 +12,9 @@
   .spec-text-wrap,
   .employee-page,
   .hero__slider_sl_content_date,
-  .hero__slider_sl_content_text {
+  .hero__slider_sl_content_text,
+  .services-price__body_item_head .ac-trigger,
+  .price-page__text {
     font-family: "Cera Pro";
     font-size: 18px;
     line-height: 27px;
@@ -26,13 +28,15 @@
   .menu__part_item_link,
   .sbu_title_services a,
   .problems__title,
-  .services-price__body_item_head .ac-trigger,
   .serv-page__body_item_spec-name,
   .employee-page__spec-title,
   .employee-page__feedback-subtitle,
   .faq__list-head,
   .single-page__subtitle,
-  .hero__slider_sl_content_head {
+  .hero__slider_sl_content_head,
+  .single-page__body-item h2,
+  .services-price__header,
+  .services-price__sub-header {
     font-family: "Cera Pro";
     font-weight: 500;
     font-size: 22px;
@@ -98,8 +102,12 @@
   .client,
   .price__row,
   .banner__btns,
+  .price-page__item,
   .faq {
     margin: 60px 0 0;
+  }
+  .price-page__text {
+    margin-bottom: 60px;
   }
   .all_services_blocks > ol > li,
   .services-price__action,
@@ -107,14 +115,15 @@
   .services-sec__list,
   .news-item__body_content_action,
   .wrap-block,
-  .price-page__item,
   .contacts-page__body_ex_action,
   .faq__list-inner,
-  .faq__list-body {
+  .faq__list-body,
+  .single-page__body-item h2 {
     margin: 30px 0 0;
   }
   .single-page__body-item,
-  .subcat-body {
+  .subcat-body,
+  .services-price__usluga {
     margin-bottom: 30px;
   }
   .single-page__body-item:last-child {
@@ -153,17 +162,23 @@
   .employee-page__feedback-subtitle,
   .news-item__body_content_name,
   .news-item__body_content_date,
-  .single-page__subtitle {
+  .single-page__subtitle,
+  .single-page__body-item h2,
+  .news-list .client__body_slider_slide_descr_name,
+  .services-price__header {
     margin-bottom: 20px;
   }
   .about__body_content_link,
   .problem-solution__subhead,
   .online__subhead,
   .services-team__head_subhead,
-  .faq__list-item {
+  .faq__list-item,
+  .services-price__sub-header {
     margin-bottom: 15px;
   }
-  .advantage__title {
+  .advantage__title,
+  .news-list .client__body_slider_slide_descr_date,
+  .news-list .client__body_slider_slide_descr_text {
     margin-bottom: 10px;
   }
   /* END MARGIN & PADDING */
@@ -185,5 +200,8 @@
     height: auto;
     bottom: -500px;
     right: -120px;
+  }
+  .services-price__sub-header {
+    font-weight: 400;
   }
 }

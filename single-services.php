@@ -305,6 +305,8 @@ get_header();
                         <div class="services-price__body accordion-container">
                             <div class="services-price__body_item ac">
                                 <div class="services-price__body_item_head ac-header">
+
+
                                     <?php
                                     $post = get_queried_object();
                                     $terms = get_the_terms($post, 'servicecat');
@@ -334,6 +336,8 @@ get_header();
                                         </table>
                                     </div>
                                 </div>
+
+
                             </div>
                         </div>
 
@@ -363,7 +367,7 @@ get_header();
                         <div class="services-team__head">
                             <h2 class="services-team__head_title section__title dark"><?php echo get_field('nazvanie_zagolovka_speczialisty'); ?></h2>
                             <div class="services-team__head_subhead">
-                                <a href="<?php echo home_url('/speczialisty/'); ?>" class="arrow-link dark">
+                                <a href="<?php echo home_url('/specialisty/'); ?>" class="arrow-link dark">
                                     <div class="arrow-link__text"><?php echo get_field('nazvanie_perehoda_vse_speczialisty'); ?></div>
                                     <div class="arrow-link__icon"></div>
                                 </a>
@@ -380,22 +384,23 @@ get_header();
                                             setup_postdata($speczialist);
                                     ?>
                                             <div class="spec-item swiper-slide">
-                                                <a href="<?php echo home_url('/speczialist-item'); ?>" class="spec-item__img-wrap">
+                                                <a href="<?php echo get_permalink($speczialist->ID); ?>" class="spec-item__img-wrap">
                                                     <div class="serv-page__body_item_img">
-                                                        <picture>
-                                                            <source srcset="" type="image/webp">
-                                                            <img src="<?php echo get_template_directory_uri() ?>/img/doctorhause-2_11zon.webp" alt="serv-img">
-                                                        </picture>
+                                                        <?php if (has_post_thumbnail($speczialist->ID)) { ?>
+                                                            <?php echo get_the_post_thumbnail($speczialist->ID); ?>
+                                                        <?php } else { ?>
+                                                            <img src="<?php echo get_template_directory_uri() ?>/img/doctorhause-2_11zon.webp" alt="spec-img">
+                                                        <?php } ?>
                                                     </div>
                                                 </a>
                                                 <div class="spec-text-wrap">
                                                     <div class="serv-page__body_item_spec-name"><?php echo $speczialist->post_title; ?></div>
-                                                    <div class="serv-page__body_item_spec">Ведущий специалист, врач дерматолог-косметолог</div>
-                                                    <div class="serv-page__body_item_staj"><span>Стаж: </span><span>15 лет</span></div>
+                                                    <div class="serv-page__body_item_spec"><?php echo get_field('speczialnost_speczialnost', $speczialist->ID); ?></div>
+                                                    <div class="serv-page__body_item_staj"><span>Стаж: </span><span><?php echo get_field('speczialnost_stazh', $speczialist->ID); ?></span></div>
                                                 </div>
                                                 <div class="spec-btn-wrap">
                                                     <div class="spec-btn-wrap__zapis upper">Записаться</div>
-                                                    <a class="spec-btn-wrap__more upper" href="<?php echo home_url('/speczialist-item'); ?>">Подробнее</a>
+                                                    <a class="spec-btn-wrap__more upper" href="<?php echo get_permalink($speczialist->ID); ?>">Подробнее</a>
                                                 </div>
                                             </div>
                                     <?php

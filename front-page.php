@@ -9,7 +9,6 @@ get_header();
 <!-- main -->
 <main class="main">
 
-
     <?php if (get_field('vklyuchitvyklyuchit_glavnyj_slajder_blok_1')) { ?>
         <div class="hero">
             <div class="hero__slider swiper">
@@ -160,7 +159,6 @@ get_header();
                         <div class="client__body_slider swiper">
                             <div class="client__body_slider_wr swiper-wrapper">
 
-
                                 <?php
                                 $apparaty = get_field('apparaty_punkty-slajdy_apparaty');
                                 if ($apparaty) {
@@ -190,12 +188,9 @@ get_header();
                                     }
                                 } ?>
 
-
-
                             </div>
                         </div>
                     </div>
-
 
                 </div>
             </div>
@@ -218,7 +213,6 @@ get_header();
                         <div class="online__body_slider swiper">
                             <div class="online__body_slider_wr swiper-wrapper">
 
-
                                 <?php
                                 $onlajn_butik = get_field('onlajn_butik_punkty-slajdy_onlajn-butik');
                                 if ($onlajn_butik) {
@@ -236,11 +230,23 @@ get_header();
 
                                             </div>
                                             <div class="online__body_slider_sl_descr">
-                                                <div class="online__body_slider_sl_descr_top">парфюмерная вода</div>
+                                                <?php if (get_field('tip_tovara', $onlajn_butik__item->ID)) { ?>
+                                                    <div class="online__body_slider_sl_descr_top"><?php echo get_field('tip_tovara', $onlajn_butik__item->ID); ?></div>
+                                                <?php } ?>
                                                 <div class="online__body_slider_sl_descr_name"><?php echo get_the_title($onlajn_butik__item->ID); ?></div>
                                                 <div class="online__body_slider_sl_descr_price">
-                                                    <div class="online__body_slider_sl_descr_price_old">456 Р</div>
-                                                    <div class="online__body_slider_sl_descr_price_new">289 Р</div>
+
+                                                    <?php if (get_field('czeny_regulyarnaya_czena', $onlajn_butik__item->ID) || get_field('czeny_czena_so_skidkoj', $onlajn_butik__item->ID)) { ?>
+                                                        <?php if (get_field('czeny_czena_so_skidkoj', $onlajn_butik__item->ID)) { ?>
+                                                            <div class="online__body_slider_sl_descr_price_old"><?php echo get_field('czeny_regulyarnaya_czena', $onlajn_butik__item->ID); ?> Р</div>
+                                                            <div class="online__body_slider_sl_descr_price_new"><?php echo get_field('czeny_czena_so_skidkoj', $onlajn_butik__item->ID); ?> Р</div>
+                                                        <?php } else { ?>
+                                                            <div class="online__body_slider_sl_descr_price_new"><?php echo get_field('czeny_regulyarnaya_czena', $onlajn_butik__item->ID); ?> Р</div>
+                                                        <?php } ?>
+                                                    <?php } else { ?>
+                                                        <div class="online__body_slider_sl_descr_price_new">ПОД ЗАКАЗ</div>
+                                                    <?php } ?>
+
                                                 </div>
                                             </div>
                                         </a>
@@ -248,11 +254,6 @@ get_header();
                                         wp_reset_postdata();
                                     }
                                 } ?>
-
-
-
-
-
 
                             </div>
                         </div>
@@ -301,8 +302,8 @@ get_header();
                                             </a>
                                             <div class="spec-text-wrap">
                                                 <div class="serv-page__body_item_spec-name"><?php echo get_the_title($speczialisty__item->ID); ?></div>
-                                                <div class="serv-page__body_item_spec">Ведущий специалист, врач дерматолог-косметолог</div>
-                                                <div class="serv-page__body_item_staj"><span>Стаж: </span><span>15 лет</span></div>
+                                                <div class="serv-page__body_item_spec"><?php echo get_field('speczialnost_speczialnost', $speczialisty__item->ID); ?></div>
+                                                <div class="serv-page__body_item_staj"><span>Стаж: </span><span><?php echo get_field('speczialnost_stazh', $speczialisty__item->ID); ?></span></div>
                                             </div>
                                             <div class="spec-btn-wrap">
                                                 <div class="spec-btn-wrap__zapis upper">Записаться</div>
@@ -350,7 +351,6 @@ get_header();
                                 <a href="<?php echo get_permalink($akczii_i_speczpredlozheniya__item->ID); ?>" class="promo__body_item">
                                     <div class="promo__body_item_img">
 
-
                                         <?php if (has_post_thumbnail($akczii_i_speczpredlozheniya__item->ID)) { ?>
                                             <?php echo get_the_post_thumbnail($akczii_i_speczpredlozheniya__item->ID); ?>
                                         <?php } else { ?>
@@ -360,8 +360,14 @@ get_header();
                                     </div>
                                     <div class="promo__body_item_descr">
                                         <div class="promo__body_item_descr_head"><?php echo get_the_title($akczii_i_speczpredlozheniya__item->ID); ?></div>
-                                        <div class="promo__body_item_descr_data">до 25 октября</div>
-                                        <div class="promo__body_item_descr_text">Дарим скидку -20% на пакет из 5-ти процедур на аппарате Morpheus 8</div>
+                                        <div class="promo__body_item_descr_data">
+                                            <?php if (get_field('vklyuchitvyklyuchit_datu', $akczii_i_speczpredlozheniya__item->ID)) { ?>
+                                                <div class="promo__body_item_descr_data"><?php echo get_field('data', $akczii_i_speczpredlozheniya__item->ID); ?></div>
+                                            <?php } ?>
+                                        </div>
+                                        <?php if (get_field('vklyuchitvyklyuchit_podzagolovok', $akczii_i_speczpredlozheniya__item->ID)) { ?>
+                                            <div class="promo__body_item_descr_text"><?php echo get_field('podzagolovok', $akczii_i_speczpredlozheniya__item->ID); ?></div>
+                                        <?php } ?>
                                         <div class="promo__body_item_descr_link">
                                             <div class="arrow-link dark">
                                                 <div class="arrow-link__text">Узнать больше</div>

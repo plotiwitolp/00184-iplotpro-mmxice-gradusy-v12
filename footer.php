@@ -4,9 +4,44 @@ if (!defined('ABSPATH')) {
 }
 
 ?>
-<!-- footer-main -->
-<?php get_template_part('templates/footer-main'); ?>
-<!-- /footer-main -->
+<footer class="footer">
+    <div class="container">
+        <div class="footer__top">
+        </div>
+        <div class="footer__mid">
+            <div class="footer__mid_main">
+                <div class="footer__mid_main_soc">
+                    <?php if (true) { ?>
+                        <a href="#" class="footer__mid_main_soc_item">WHATSAPP</a>
+                    <?php } ?>
+
+                    <?php if (true) { ?>
+                        <a href="#" class="footer__mid_main_soc_item">VK</a>
+                    <?php } ?>
+
+                    <?php if (true) { ?>
+                        <a href="#" class="footer__mid_main_soc_item">TELEGRAM</a>
+                    <?php } ?>
+
+                    <?php if (true) { ?>
+                        <a href="#" class="footer__mid_main_soc_item">YOUTUBE</a>
+                    <?php } ?>
+                </div>
+            </div>
+            <div class="footer__mid_ex">
+                <?php
+                wp_nav_menu(array(
+                    'theme_location' => 'footer-menu',
+                    'menu_class'     => 'footer-menu',
+                ));
+                ?>
+            </div>
+        </div>
+        <div class="footer__bottom">©COPYRIGHT <?php echo date('Y') ?>. GRADUSY CLINIC.</div>
+    </div>
+</footer>
+
+<div class="btn__visit spec-btn-wrap__zapis">Записаться на визит</div>
 
 <!-- main-menu -->
 <div class="menu">
@@ -110,9 +145,22 @@ if (!defined('ABSPATH')) {
 
         </div>
     </div>
-    <!-- footer-in-main-menu -->
-    <?php get_template_part('templates/footer-in-main-menu'); ?>
-    <!-- /footer-in-main-menu -->
+
+    <footer class="footer">
+        <div class="container">
+            <div class="footer__top">
+            </div>
+            <div class="footer__mid">
+                <div class="footer__mid_ex">
+                    <a href="#" class="footer__mid_ex_policy">Политика конфиденциальности
+                    </a>
+                    <a href="#" class="footer__mid_ex_license">ЛИЦЕНЗИИ И ДОКУМЕНТЫ</a>
+                </div>
+            </div>
+            <div class="footer__bottom">©COPYRIGHT 2023. GRADUSY CLINIC.</div>
+        </div>
+    </footer>
+
 </div>
 <!-- /main-menu -->
 

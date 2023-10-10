@@ -1798,6 +1798,42 @@ input[type='checkbox']:checked + .feedback-form__item-pravicy-checkmark::before 
 .employee-page__img img {
   height: auto;
 }
+.promo__body_item_descr_link .arrow-link__icon {
+  filter: invert(1);
+}
+.single-page__body-item li {
+  list-style: disc;
+  margin-left: 25px;
+}
+.single-page__body-flex {
+  display: flex;
+  justify-content: space-between;
+}
+.single-page__body-left,
+.single-page__body-right {
+  width: 48%;
+}
+.single-page__body-wrapimg {
+  overflow: hidden;
+}
+.single-page__body-wrapimg img {
+  width: 100%;
+  height: auto;
+}
+@media (max-width: 768px) {
+  .single-page__body-left,
+  .single-page__body-right {
+    width: 100%;
+  }
+}
+.news-item__body:not(:has(.news-item__body_img)) .news-item__body_content,
+.single-page__body:not(:has(.single-page__body-left)) .single-page__body-right {
+  width: 100%;
+}
+th.table__item.table__head {
+  font-weight: 400 !important;
+}
+
 // ниже не добавлять!
 @import url('./main-desk.css');
 @import url('./main-mob.css');

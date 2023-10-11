@@ -194,26 +194,33 @@
       popupActive();
     });
 
-    // start эмуляция отправки письма
-    $('.feedback-form__item-submit').on('click', function () {
-      $('.feedback-form__message').addClass('active');
-      setTimeout(function () {
-        $('.feedback-form__message').removeClass('active');
-        popupDeactivate();
-      }, 5000);
-
-      let timer = 5;
-
-      let popupTimer = setInterval(function () {
-        if (timer > 0) {
-          timer--;
-          $('.popup_timer').text(timer);
-        } else {
-          clearInterval(popupTimer);
-          $('.popup_timer').text(5);
-        }
-      }, 1000);
+    // start чекбокс персональные данные
+    $('#wpcf7-f647-o1 .feedback-form__item-pravicy').on('click', function () {
+      console.log('test');
+      $('.feedback-form__item-pravicy-checkmark').toggleClass('active');
     });
+    // end чекбокс персональные данные
+
+    // start эмуляция отправки письма
+    // $('.feedback-form__item-submit').on('click', function () {
+    //   $('.feedback-form__message').addClass('active');
+    //   setTimeout(function () {
+    //     $('.feedback-form__message').removeClass('active');
+    //     popupDeactivate();
+    //   }, 5000);
+
+    //   let timer = 5;
+
+    //   let popupTimer = setInterval(function () {
+    //     if (timer > 0) {
+    //       timer--;
+    //       $('.popup_timer').text(timer);
+    //     } else {
+    //       clearInterval(popupTimer);
+    //       $('.popup_timer').text(5);
+    //     }
+    //   }, 1000);
+    // });
     // end эмуляция отправки письма
     // END popup записаться к специалисту
 

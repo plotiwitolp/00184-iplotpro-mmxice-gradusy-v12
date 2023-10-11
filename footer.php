@@ -156,12 +156,18 @@ if (!defined('ABSPATH')) {
 <div class="popup-layer"></div>
 <!-- /popup-layer -->
 
+
+
 <!-- pop-up записаться -->
 <div class="popup-inner">
     <div class="employee-page__feedback">
         <span class="popup-sign-up__close">x</span>
         <div class="employee-page__feedback-subtitle">Запишитесь на прием прямо сейчас!</div>
-        <form action="" class="feedback-form">
+
+
+        <?php echo do_shortcode('[contact-form-7 id="f3f2251" title="Общая форма обратной связи"]'); ?>
+
+        <!-- <form action="" class="feedback-form">
             <div class="feedback-form__first">
                 <div class="feedback-form__item">
                     <input type="text" placeholder="Имя">
@@ -180,7 +186,7 @@ if (!defined('ABSPATH')) {
                     <label for="form-pravicy" class="feedback-form__item-pravicy">
                         <input type="checkbox" id="form-pravicy">
                         <span class="feedback-form__item-pravicy-checkmark"></span>
-                        Я даю согласие на обработку <a href="#">персональных данных</a>
+                        Я даю согласие на обработку <a href="/politika-konfidenczialnosti/">персональных данных</a>
                     </label>
                 </div>
                 <div class="feedback-form__item">
@@ -191,10 +197,12 @@ if (!defined('ABSPATH')) {
                 Спасибо, ваше сообщение успешно отправлено!
                 <br> Данное окно автоматически закроется через <span class="popup_timer">5</span> сек.
             </div>
-        </form>
+        </form> -->
+
     </div>
 </div>
 <!-- /pop-up записаться -->
+
 
 </div>
 <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>

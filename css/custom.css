@@ -2201,6 +2201,49 @@ th.table__item.table__head {
           justify-content: space-between;
 }
 
+.feedback-form__third span.wpcf7-form-control-wrap {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+  width: 100%;
+}
+
+.feedback-form__third span.wpcf7-list-item.first.last label {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.wpcf7-list-item {
+  margin: 0 !important;
+}
+
+.feedback-form__third span.wpcf7-list-item.first.last input[type=checkbox] {
+  padding: 0;
+  margin: 0;
+  height: 20px;
+  width: 20px;
+  margin-right: 15px;
+}
+
+span.feedback-form__item-pravicy-checkmark {
+  display: none;
+}
+
+input.wpcf7-form-control.wpcf7-submit.has-spinner {
+  text-transform: uppercase;
+  margin-top: 20px;
+}
+
+.wpcf7-response-output {
+  margin: 0 0 10px 0 !important;
+}
+
 @media (max-width: 768px) {
   .contacts-page__body_main_item {
     width: 100%;
